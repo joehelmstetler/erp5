@@ -1,3 +1,6 @@
+2013-10-03 arnaud.fontaine
+* erp5_core: A function was renamed but some code has not been updated accordingly (24ccf35).
+
 2013-09-08 arnaud.fontaine
 * ZODB Components: Revert 'Allow to execute runUnitTest for bt5 Test Components' to fix tests bootstrap.
 
