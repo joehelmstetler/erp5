@@ -37,7 +37,7 @@ from Products.ZSQLCatalog.SQLCatalog import profiler_decorator
 @profiler_decorator
 def escapeString(value):
   # Inspired from ERP5Type/Utils:sqlquote, but this product must not depend on it.
-  return "'" + value.replace('\\', '\\\\').replace("'", "''") + "'"
+  return "'" + value.replace('\\', '\\\\').replace("'", "''").replace('\0', '\\0') + "'"
 
 @profiler_decorator
 def valueFloatRenderer(value):

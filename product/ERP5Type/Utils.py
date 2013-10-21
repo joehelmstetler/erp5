@@ -1394,7 +1394,7 @@ def sqlquote(x):
    - use string member methods instead of string module
   """
   if isinstance(x, basestring):
-    x = "'" + x.replace('\\', '\\\\').replace("'", "''") + "'"
+    x = "'" + x.replace('\\', '\\\\').replace("'", "''").replace('\0', '\\0') + "'"
   elif isinstance(x, (int, long, float)):
     pass
   elif x is None:

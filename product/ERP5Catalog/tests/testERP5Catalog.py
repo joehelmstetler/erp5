@@ -3672,6 +3672,15 @@ VALUES
     newSecurityManager(None, user)
     portal.view()
 
+  def test_Escape0(self):
+    other_organisation = self.portal.organisation_module.newContent(
+      portal_type='Organisation', title='Other organisation')
+    organisation = self.portal.organisation_module.newContent(
+      portal_type='Organisation', title='\0')
+    self.tic()
+    self.assertEquals([organisation], [x.getObject() for x in
+      self.portal.portal_catalog(title='\0')])
+
   def test_IndexationContextIndependence(self):
     def doCatalog(catalog, document):
       catalog.catalogObjectList([document], check_uid=0)
